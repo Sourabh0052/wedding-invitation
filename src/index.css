@@ -1,0 +1,279 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-script: 'Great Vibes', 'Brush Script MT', cursive;
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Quicksand', ui-sans-serif, system-ui, sans-serif;
+  --font-deva: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', 'Kohinoor Devanagari', 'Mangal', serif;
+
+  --color-sakura-50: #fff5f8;
+  --color-sakura-100: #ffe6ee;
+  --color-sakura-200: #ffcadb;
+  --color-sakura-300: #fca6c2;
+  --color-sakura-400: #f582a9;
+  --color-sakura-500: #e7608f;
+  --color-sakura-600: #c94673;
+  --color-sakura-700: #a3355b;
+
+  --color-ivory: #fffaf3;
+  --color-cream: #fbf0e2;
+  --color-blush: #fde8e6;
+
+  --color-gold-200: #f6e3b4;
+  --color-gold-300: #efd28e;
+  --color-gold-400: #e0b866;
+  --color-gold-500: #c99a3e;
+  --color-gold-600: #a37a2b;
+
+  --color-plum-500: #8f4a6c;
+  --color-plum-600: #7a3d5f;
+  --color-plum-700: #5f2f4b;
+  --color-plum-800: #4a2439;
+  --color-plum-900: #331827;
+
+  /* festive Indian palette: marigold yellow, sindoor red, mango-leaf green */
+  --color-marigold-50: #fffbea;
+  --color-marigold-100: #fff3c4;
+  --color-marigold-200: #ffe58a;
+  --color-marigold-300: #ffd23f;
+  --color-marigold-400: #fbbf24;
+  --color-marigold-500: #f59e0b;
+  --color-marigold-600: #e07a06;
+  --color-marigold-700: #b45309;
+
+  --color-sindoor-50: #fff1f1;
+  --color-sindoor-100: #ffdede;
+  --color-sindoor-200: #ffbcbc;
+  --color-sindoor-300: #ff8a8a;
+  --color-sindoor-400: #f45555;
+  --color-sindoor-500: #e02828;
+  --color-sindoor-600: #c01818;
+  --color-sindoor-700: #9b1414;
+  --color-sindoor-800: #7a1212;
+
+  --color-leaf-50: #f1fbe9;
+  --color-leaf-100: #e0f6cf;
+  --color-leaf-200: #c5eca6;
+  --color-leaf-300: #a3dd78;
+  --color-leaf-400: #7fc94f;
+  --color-leaf-500: #5fae34;
+  --color-leaf-600: #468a25;
+  --color-leaf-700: #366a1f;
+
+  --shadow-dreamy: 0 20px 60px -20px rgb(201 70 115 / 0.35), 0 8px 24px -12px rgb(122 61 95 / 0.25);
+  --shadow-gold: 0 0 0 1px rgb(224 184 102 / 0.45), 0 18px 50px -18px rgb(163 122 43 / 0.45);
+}
+
+/*
+ * Soft pastel palette (weddingConfig.theme.palette = 'pastel'): the same token names,
+ * re-tuned to blush pink, light peach, cream, champagne gold and a whisper of sage.
+ */
+:root {
+  --names-gradient: linear-gradient(120deg, #9b1414 0%, #d42a2a 35%, #e0620a 62%, #c2185b 100%);
+}
+:root[data-palette='pastel'] {
+  /* "sindoor" → dusty blush rose */
+  --color-sindoor-50: #fff6f7;
+  --color-sindoor-100: #fdeaee;
+  --color-sindoor-200: #f9d3db;
+  --color-sindoor-300: #f2b6c3;
+  --color-sindoor-400: #e898aa;
+  --color-sindoor-500: #d67b91;
+  --color-sindoor-600: #b8627a;
+  --color-sindoor-700: #964d63;
+  --color-sindoor-800: #763d4f;
+  /* "marigold" → light peach & champagne */
+  --color-marigold-50: #fffaf4;
+  --color-marigold-100: #fff1e3;
+  --color-marigold-200: #fde2cb;
+  --color-marigold-300: #f8cfae;
+  --color-marigold-400: #efbc93;
+  --color-marigold-500: #e2a77b;
+  --color-marigold-600: #c98d62;
+  --color-marigold-700: #a1704c;
+  /* "leaf" → soft sage */
+  --color-leaf-50: #f7faf3;
+  --color-leaf-100: #edf4e6;
+  --color-leaf-200: #dbe9cf;
+  --color-leaf-300: #c3dab0;
+  --color-leaf-400: #a8c592;
+  --color-leaf-500: #8cad76;
+  --color-leaf-600: #70925d;
+  --color-leaf-700: #5a764b;
+
+  --names-gradient: linear-gradient(120deg, #8a3a57 0%, #b9587a 38%, #c98a62 66%, #a2486c 100%);
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ivory font-sans text-plum-800 antialiased;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: var(--color-sakura-200);
+    color: var(--color-plum-900);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold-500);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@utility text-gold-gradient {
+  background: linear-gradient(120deg, #a37a2b 0%, #e0b866 30%, #f6e3b4 50%, #c99a3e 72%, #a37a2b 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-rose-gradient {
+  background: var(--names-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glass-card {
+  background: linear-gradient(160deg, rgb(255 251 234 / 0.9), rgb(255 250 243 / 0.85) 45%, rgb(241 251 233 / 0.82));
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgb(224 184 102 / 0.35);
+  box-shadow: var(--shadow-dreamy);
+}
+
+/* Multicolour festive stripe: red · marigold · green · pink */
+@utility festive-stripe {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-sindoor-500) 0 18px,
+    var(--color-marigold-400) 18px 36px,
+    var(--color-leaf-400) 36px 54px,
+    var(--color-sakura-400) 54px 72px
+  );
+}
+
+@utility gold-frame {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    border: 1px solid rgb(201 154 62 / 0.45);
+    border-radius: inherit;
+    pointer-events: none;
+  }
+}
+
+@utility card-paper {
+  background-color: var(--color-ivory);
+  background-image:
+    radial-gradient(circle at 15% 8%, rgb(255 210 63 / 0.22), transparent 40%),
+    radial-gradient(circle at 90% 30%, rgb(244 85 85 / 0.12), transparent 38%),
+    radial-gradient(circle at 10% 75%, rgb(163 221 120 / 0.22), transparent 42%),
+    radial-gradient(circle at 85% 92%, rgb(252 166 194 / 0.2), transparent 45%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.3 0 0 0 0 0.35 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* pastel: softer paper washes */
+:root[data-palette='pastel'] .card-paper {
+  background-image:
+    radial-gradient(circle at 15% 8%, rgb(248 207 174 / 0.28), transparent 40%),
+    radial-gradient(circle at 90% 30%, rgb(242 182 195 / 0.22), transparent 38%),
+    radial-gradient(circle at 10% 75%, rgb(246 227 189 / 0.3), transparent 42%),
+    radial-gradient(circle at 85% 92%, rgb(252 202 219 / 0.25), transparent 45%);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Range input (video progress & music volume) */
+.range-sakura {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  height: 18px;
+}
+.range-sakura::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--color-marigold-300) 0%,
+    var(--color-sindoor-400) var(--fill, 0%),
+    rgb(255 255 255 / 0.35) var(--fill, 0%)
+  );
+}
+.range-sakura::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.35);
+}
+.range-sakura::-moz-range-progress {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--color-marigold-300), var(--color-sindoor-400));
+}
+.range-sakura::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  margin-top: -5px;
+  border-radius: 999px;
+  background: #fff;
+  border: 2px solid var(--color-gold-400);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.25);
+}
+.range-sakura::-moz-range-thumb {
+  height: 12px;
+  width: 12px;
+  border-radius: 999px;
+  background: #fff;
+  border: 2px solid var(--color-gold-400);
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+.animate-shimmer {
+  animation: shimmer 6s linear infinite;
+}
+
+/* marigold strings on the toran sway like they're hanging in a breeze */
+@keyframes toran-sway {
+  from {
+    transform: rotate(-3deg);
+  }
+  to {
+    transform: rotate(3deg);
+  }
+}
+.toran-sway {
+  transform-box: fill-box;
+  transform-origin: 50% 0;
+  animation: toran-sway 3.2s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toran-sway {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-shimmer {
+    animation: none;
+  }
+}
